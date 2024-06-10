@@ -1,20 +1,19 @@
-<p>home works!</p>
-<button type="button" (click)="get()">Get</button>
+<p>{{title}}</p>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Projeto</th>
-        <th scope="col">Início</th>
-        <th scope="col">Término</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>mdo</td>
-    </tbody>
-  </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Projeto</th>
+                <th scope="col">Início</th>
+                <th scope="col">Término</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of dados; let i=index">
+                <th scope="row">1</th>
+                <td>{{ d.projeto }}</td>
+                <td>Otto</td>
+                <td>mdo</td>
+        </tbody>
+    </table>

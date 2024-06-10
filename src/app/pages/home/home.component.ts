@@ -1,19 +1,33 @@
-import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  constructor( private httpClient: HttpClient) {}
+export class HomeComponent implements OnInit {
+
+  constructor(private apiService: ApiService) { }
+
+  ngOnInit(): void {
+    this.get();
+  }
+
+  title = "Apontamentos";
+  dados: any[] = [];
 
   get() {
-    this.httpClient.get('http://localhost:3000/api/apontamentos').subscribe(res => {
-      console.log(res)
-    })
+    this.apiService.get()
+      .subscribe((data) => {
+        this.dados = data
+        console.log(this.dados)
+      },
+        (error) => console.error('Erro ao obter dados da API', error)
+      )
   }
 }
