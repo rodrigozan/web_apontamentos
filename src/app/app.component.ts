@@ -10,5 +10,5 @@ import { CommonModule, NgIf } from '@angular/common';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'web_apontamentos';
+  title = 'Apontamentos';
 }
